@@ -1,7 +1,6 @@
 package cinema.app.controller;
 
 import cinema.app.exception.DataProcessingException;
-import cinema.app.model.RoleName;
 import cinema.app.model.User;
 import cinema.app.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +9,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 public class WelcomePageController {
