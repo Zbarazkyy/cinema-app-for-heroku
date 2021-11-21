@@ -29,30 +29,6 @@ public class WelcomePageController {
         User user = userService.findByEmail(email).orElseThrow(
                 () -> new DataProcessingException("User with email " + email + " not found"));
         model.addAttribute("userName", user.getEmail());
-
-        String welcomeMessage;
-        if (user.getRoles().contains(RoleName.ADMIN)) {
-            welcomeMessage = "Hello " + user.getEmail()
-                    + System.lineSeparator()
-                    + "You are added with ADMIN role. "
-                    + System.lineSeparator()
-                    + "GET - /cinema-halls, /movies, /movie-sessions/available, /movie-sessions/id, /users/by-email?email "
-                    + System.lineSeparator()
-                    + "POST - /register, /login, /cinema-halls, /movies, /movie-sessions"
-                    + System.lineSeparator()
-                    + "PUT - /movie-sessions/id and DELETE - /movie-sessions/id";
-
-        } else {
-            welcomeMessage = "Hello " + user.getEmail()
-                    + System.lineSeparator()
-                    + "You are added with USER role. "
-                    + System.lineSeparator()
-                    + "GET - /cinema-halls, /movies, /movie-sessions/available, /movie-sessions/id, /orders, /shopping-carts/by-user "
-                    + System.lineSeparator()
-                    + "POST - /register, /login, /orders/complete"
-                    + System.lineSeparator()
-                    + "PUT - /shopping-carts/movie-sessions?movieSessionId";
-        }
         return "welcome";
     }
 }
